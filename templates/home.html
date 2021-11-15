@@ -1,39 +1,14 @@
+Fake News📰 Detector
 Fake News - Machine Learning
 Fake news prediction using Machine Learning algorithms. Enter your text or generate a random text from our dataset.
 
-{{ form.hidden_tag() }}
-{% if form.original_text.errors %} {{ form.original_text(class="form-control form-control-lg is-invalid") }}
-{% for error in form.original_text.errors %} {{ error }} {% endfor %}
-{% else %} {{ form.original_text(class="form-control", id="email", rows="10") }} {% endif %}
 
-{{ form.generate(class="btn btn-primary btn-outline btn-md") }} {{ form.predict(class="btn btn-primary btn-outline btn-md") }}
 
-{% if output %}
-Prediction : {{output['prediction']}} See result details
 
+
+Predict
+{% if prediction == ['FAKE']%}
+Fake⚠️News📰
+{% elif prediction == ['REAL']%}
+Real News📰
 {% endif %}
-
-Original Text
-{%if output %}
-{{ output['original'] }}
-
-{% else %}
-Error
-
-{% endif%}
-Preprocessed Text
-{%if output %}
-{{ output['preprocessed'] }}
-
-{% else %}
-Error
-
-{% endif%}
-Transform & Predict
-{%if output %}
-Text predicted as : {{ output['prediction'] }}
-
-{% else %}
-Error 
-
-{% endif%}
