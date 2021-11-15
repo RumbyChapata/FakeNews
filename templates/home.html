@@ -12,15 +12,13 @@ Fake news prediction using Machine Learning algorithms. Enter your text or gener
 Prediction : {{output['prediction']}} See result details
 
 {% endif %}
-How It Works
-Fake news prediction using Machine Learning algorithms. The text is first preprocessed and transformed as a vector. Then, the vector is feeded to the trained model to be classified.
 
 Original Text
 {%if output %}
 {{ output['original'] }}
 
 {% else %}
-Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line
+Error
 
 {% endif%}
 Preprocessed Text
@@ -28,7 +26,7 @@ Preprocessed Text
 {{ output['preprocessed'] }}
 
 {% else %}
-Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line
+Error
 
 {% endif%}
 Transform & Predict
@@ -36,6 +34,6 @@ Transform & Predict
 Text predicted as : {{ output['prediction'] }}
 
 {% else %}
-Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line
+Error 
 
 {% endif%}
