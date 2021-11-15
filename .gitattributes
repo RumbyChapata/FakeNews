@@ -1,2 +1,5 @@
 *.scss linguist-language=Python
 *.css linguist-detectable=false
+*.PKL[[:space:]]File filter=lfs diff=lfs merge=lfs -text
+*.csv filter=lfs diff=lfs merge=lfs -text
+*csv filter=lfs diff=lfs merge=lfs -text
