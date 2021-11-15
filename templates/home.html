@@ -1,35 +1,14 @@
-<!DOCTYPE html>
-<html >
-<head>
-  <meta charset="UTF-8">
-  <title>Fake News📰 Detection System</title>
-  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+Fake News - Machine Learning
+Fake news prediction using Machine Learning algorithms. Enter your text or generate a random one from our dataset to try it.
 
-</head>
+{{ form.hidden_tag() }}
+{% if form.original_text.errors %} {{ form.original_text(class="form-control form-control-lg is-invalid") }}
+{% for error in form.original_text.errors %} {{ error }} {% endfor %}
+{% else %} {{ form.original_text(class="form-control", id="email", rows="10") }} {% endif %}
 
-<body>
- <div class="login">
-	<h1>Fake News📰  Detector</h1>
+{{ form.generate(class="btn btn-primary btn-outline btn-md") }} {{ form.predict(class="btn btn-primary btn-outline btn-md") }}
 
-    <form action="{{ url_for('predict')}}" method="POST">
-    	<textarea  name="message" rows="6" cols="50" required="required" style="font-size: 18pt"></textarea>
-		<br> </br>
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+{% if output %}
+Prediction : {{output['prediction']}} See result details
 
-        	<div class="results">
-
-	{% if prediction == ['FAKE']%}
-	<h2 style="color:red;">Looking Spam⚠️News📰 </h2>
-	{% elif prediction == ['REAL']%}
-				<h2 style="color:green;"><b>Looking Real News📰</b></h2>
-	{% endif %}
-
-	</div>
-
-    </form>
-
-</div>
+{% endif %}
